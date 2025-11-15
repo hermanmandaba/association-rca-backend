@@ -1,0 +1,39 @@
+{
+  "name": "association-rca-backend",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch ./src/app/index.ts",
+    "watch": "bun ./src/app/index.ts",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "@types/bcrypt": "^6.0.0",
+    "@types/bun": "latest",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.1",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.6",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.6",
+    "drizzle-orm": "^0.44.7",
+    "hono": "^4.10.5",
+    "jsonwebtoken": "^9.0.2",
+    "postgres": "^3.4.7",
+    "zod": "^4.1.12"
+  }
+}

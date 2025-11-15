@@ -1,0 +1,34 @@
+services:
+  postgres:
+   image: postgres:17-alpine
+   container_name: association_rca_db
+   environment:
+     POSTGRES_USER: herman
+     POSTGRES_PASSWORD: MandabaHerman2004
+     POSTGRES_DB: association_rca
+   ports: 
+    - "5432:5432"
+   volumes: 
+    - postgres_data:/var/lib/postgresql/data
+   healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_rca
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: herman@rca.com
+      PGADMIN_DEFAULT_PASSWORD: MandabaHerman2004
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+
+volumes:
+ postgres_data: {}
+ pgadmin_data: {}
